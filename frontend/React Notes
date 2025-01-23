@@ -1,0 +1,116 @@
+<!--Vite is a lightweight web server that allows us to run React applications
+npm stands for Node Package Manager 
+
+In terminal, npm create vite@latest to specify project name, framework, and language/variant.
+This will create a new folder for us, which is where React project will live (I named it frontend)
+
+Change directory to frontend
+
+package.json file contains all the dependencies for application
+
+In terminal npm install will bring all dependencies into the project, which are necessary for the project ot run. Will create a folder called node_modules with all the dependencies/code, and every time we add a new package, it will be added here. 
+
+In index.html, this is where we will actually inject our react code inside the <div id="root">.
+
+In terminal npm run dev will provide a link that shows you where your React server is located, and this will change real-time (hot reload). Ctrl-C to shut down server
+
+
+In src folder:
+In main.jsx file, this is where React application begins. 
+
+In App.jsx, this is where we actually start writing code/functions.
+
+A component is any function in Javascript that returns some combination of javascript and html (jsx) code
+->will always start with a capital letter.
+->jsx code must have only one parent element (root element), so we can't have two tags on the same top level. 
+->many people set a parent element with a fragment <> </> so they could have div elements on the same level 
+
+In App.jsx:
+We can make a dummy component so we don't have to repeat things inside our main component. We do this by creating component Text(). We can call this dummy component in the main component with <Text />.
+->/ closes the component...could also do it like tags </Text>
+
+Sometimes we want our components to display something unique, like text being displayed or color. We pass in some parameter to customize the component; we can add a prop (property) to the component definition in curly braces.
+-> The prop will indicate a new keyword to be recognized, and we can dynamically use the value being passed in, like a function parameter. (i.e <Text display="what's up"/>) inside the App function.
+
+Something to think about is what components do I need for my project? 
+->Image
+->Name of poem
+->Dynasty
+->Favorite
+
+Inside src, created a folder called components, inside which I created a file called PoemCard.jsx
+Note that in jsx, we use className as the equivalent of a CSS class.
+Inside this file, we design a component PoemCard that represents a poem, which would appear multiple times on the website. Format is similar to HTMl.
+
+Notice the onClick {} event... similar to normal JavaScript, clicking the button allows a response to that event.
+Notice that {} means we're treating whatever's inside as a variable (i.e {poem.title}) where poem is the property we passed in to PoemCard component.
+
+Whenever we want to access something in another file in JS, we need to export it.
+At the bottom of the file, write export default name_of_component. where component name is PoemCard.
+
+
+Now go to App.jsx and import PoemCard from the path and start rendering components.
+->if you used a named export (writing export beside the component) then you need to wrap PoemCard in {}
+-> note when you render components, you need {{}} where the outer marks the variable and the inner marks the object we're going to pass.
+
+
+Conditional Rendering: Code where you can render one component or the other based on some conditions.
+->condition is the code preceding ?, followed by the component to be rendered on screen if condition is fulfilled.
+->otherwise what proceeds the colon : will be displayed.
+-> you can also use && as an alternative.
+->In jsx, you cannot wrap multiple leements without wrapping them in a single parent element, so be careful here...may use multiple <></>
+
+
+Now in src, create a new folder called "Pages" inside which create a file called Home.jsx (homepage for our site)
+and also Favorites.jsx (favorites page)
+
+We want to render movies dynamically instead of individually, so create an array in Home.jsx
+and use .map. Then import the Home component and replace the giant list in App.jsx with <Home/>
+
+In Home.jsx, we add a form submission feature using onSubmit{} and a button feature.
+
+
+
+How we handle dynamic parts of our components and the count of something?
+STATE: something where once it's updated, the component will change and re-render itself to show the new state.
+
+In App.jsx, import {useState} from "react" (hook). Then in Home() component, define a state that can handle logic.
+
+We can use state to display different values inside a component (i.e only display poems if their title matches with the search query entered) by adding to poems.map. We conditionally render the movie card only if the start of the query matches the title of the movie card.
+
+IMPORTANT:When a state change occurs, the entire components are re-ran or re-rendered. So if we put something as a normal variable and not in the state, whatever value it was changed to will be lost as soon as the component is rerendered because it's going to be redefined again. 
+
+So if you want to have a state that persists across reruns and rerenders, make sure you defined it in a state like const[searchQuery, setSearchQuery]
+If we only had a normal variable definition, the component would never be updated because every time we rerender the component, it would get reset back to the original value. 
+
+We need to use the state to persist whatever it is that we want to store in the component. 
+
+State will be reset when you reload the page though.
+
+PAGE ROUTING; React router
+In terminal, npm install react-router-dom to enable routing
+
+In Apps.jsx, we write routes; inside each route we can define each individual path or route and have /home or /favorites etc mapping to a component we want to display on screen.
+
+Create a navbar component so we can switch between pages. Create a new file inside folder components called NavBar.jsx, inside of which make the NavBar and write the component NavBar to switch between pages.
+Don't forget to export it and import it into the App.jsx (because we want it to display for the entire app and not just the homepage or favorite page)!
+
+
+Created a Css folder with styling and import these styles into the jsx files.
+
+
+IMPORTANT: Calling APIs; we don't want to write each poem by hand; we want to fetch them from a source.
+We can do this in services/api.js which we create.
+
+
+
+#USE EFFECT: allows us to actually use the functions above.
+While we could just define a variable and set it equal to the function that gets the api, we don't wan tto do this every time something changes in the rest of the function. 
+useEffect allows you to add side effects to your functions/components and define when they should run. In our case, we only want it to run the first time it appears on the screen. Bring in the useEffect hook from react in Home.jsx.
+
+
+CONTEXT: the state manager for the project.
+->local storage allows us to store things directly in our browser
+->operation to add to favorites; update state; add value to the array in MovieContext.jsx
+-> The creation of a provider (i.e MovieProvider) provides state to any of the components wrapped around it kind of like BrowserRouter*/
+->In App.jsx, the MovieProvider state can be accessed from any of the components inside because it wraps around them.
