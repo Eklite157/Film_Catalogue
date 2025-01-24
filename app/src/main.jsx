@@ -12,5 +12,5 @@ createRoot(document.getElementById('root')).render(
     </BrowserRouter>
   </StrictMode>,
 )
- /* BrowserRouter tag give us ability to change components on screen based on the /route we're going to for
+ /* BrowserRouter tag give ability to change components on screen based on the /route we're going to for
   our webpage DONT FORGET THIS STEP*/

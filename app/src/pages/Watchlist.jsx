@@ -1,4 +1,4 @@
-import "../css/Watchlist.css"; // Make sure to create a separate CSS for Watchlist or reuse the relevant styles
+import "../css/Watchlist.css"; 
 import { useMovieContext } from "../contexts/MovieContext";
 import MovieCard from "../components/MovieCard";
 
