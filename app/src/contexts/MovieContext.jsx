@@ -1,7 +1,3 @@
-//essentially the state manager for all of our states
-//Context in React allows you to share values (like state, functions, or any data) between components =
-//at different levels in the component tree, without having to pass them down through props. 
-
 import {createContext, useState, useContext, useEffect} from "react"
 
 const MovieContext=createContext()
