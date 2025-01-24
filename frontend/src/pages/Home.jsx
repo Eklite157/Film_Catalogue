@@ -36,9 +36,9 @@ function Home () {
 
 
     const handleSearch= async (e) => {
-    /* we add preventDefault to prevent search box from being cleared*/
-    /* we can also set the updated state ourselves; having a setSearchQuery() will tell React what to show
-    in the search box after input*/  
+    //add preventDefault to prevent search box from being cleared
+    //we can also set the updated state ourselves; having a setSearchQuery() will tell React what to show
+    //in the search box after input 
         e.preventDefault()
         if (!searchQuery.trim()) return
         if (loading) return
