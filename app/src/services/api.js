@@ -1,8 +1,8 @@
-const API_KEY=import.meta.env.VITE_API_KEY;
+const API_KEY=import.meta.env.VITE_API_KEY; //using environment variable 
 const BASE_URL="https://api.themoviedb.org/3"
 
 
-// Function to get popular movies, now supporting pagination
+// Function to get list of popular movies, now supporting pagination
 export const getPopularMovies = async (maxPages = 12) => {
     let allMovies = [];
     for (let page = 1; page <= maxPages; page++) {
@@ -17,7 +17,7 @@ export const getPopularMovies = async (maxPages = 12) => {
     return allMovies;
   };
   
- 
+ //Function for searching movies, supporting pagination
   export const searchMovies = async (query, maxPages = 12) => {
     let allResults = [];
     for (let page = 1; page <= maxPages; page++) {
@@ -33,3 +33,4 @@ export const getPopularMovies = async (maxPages = 12) => {
     }
     return allResults;
   };
+
