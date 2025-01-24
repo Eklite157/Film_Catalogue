@@ -102,4 +102,4 @@ and we update the state, and the state updates the page*/
 You will need a key property to this because React needs to know which property to update based on the interactions that happen
 So we need to mark every single component with a unique identifier EVEN if it's not a property of the component itself.*/
 
-export default Home
+export default Home;

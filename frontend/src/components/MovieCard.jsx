@@ -1,15 +1,38 @@
 import "../css/MovieCard.css"
 import {useMovieContext} from "../contexts/MovieContext"
 
+//Writing component specifically for displaying each movie. 
 function MovieCard({movie}) {
-    const {isFavorite, addToFavorites, removeFromFavorites} =useMovieContext();
-    const favorite=isFavorite(movie.id)
+    const {
+        isFavorite, 
+        addToFavorites,
+        removeFromFavorites, 
+        isInWatchlist, 
+        addToWatchlist, 
+        removeFromWatchlist} =useMovieContext();
+
+    const favorite=isFavorite(movie.id);
 
     function onFavoriteClick(e){
-        e.preventDefault()
-        if (favorite) removeFromFavorites(movie.id)
-            else addToFavorites(movie)
-    }
+        e.preventDefault();
+        if (favorite) {
+            removeFromFavorites(movie.id);
+        } else {
+            addToFavorites(movie)
+        };
+    };
+
+
+    const watchlist=isInWatchlist(movie.id);
+
+    function onWatchlistClick(e){
+        e.preventDefault();
+        if (watchlist) {
+            removeFromWatchlist(movie.id);
+        } else {
+            addToWatchlist(movie);
+        }
+    };
 
     return <div className="movie-card">
         <div className="movie-poster">
@@ -17,6 +40,9 @@ function MovieCard({movie}) {
             <div className="movie-overlay">
                 <button className={`favorite-btn ${favorite ? "active": ""}`} onClick={onFavoriteClick}>
                     ♡
+                </button>
+                <button className={`watchlist-btn ${watchlist ? "active": ""}`} onClick={onWatchlistClick}>
+                    📅 
                 </button>
             </div>
         </div>

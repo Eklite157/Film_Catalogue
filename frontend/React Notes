@@ -114,3 +114,6 @@ CONTEXT: the state manager for the project.
 ->operation to add to favorites; update state; add value to the array in MovieContext.jsx
 -> The creation of a provider (i.e MovieProvider) provides state to any of the components wrapped around it kind of like BrowserRouter*/
 ->In App.jsx, the MovieProvider state can be accessed from any of the components inside because it wraps around them.
+
+
+/CSS files apply to the jsx files

@@ -10,8 +10,12 @@ function NavBar(){
         <div className="navbar-links">
             <Link to="/" className="nav-link">Home</Link>
             <Link to="/favorites" className="nav-link">Favorites</Link>
+            <Link to="/watchlist" className="nav-link">Watchlist</Link>
         </div>
+
     </nav>
 }
 
 export default NavBar
+
+//paths like "/favorites" are as defined in App.jsx
