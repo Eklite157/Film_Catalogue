@@ -8,9 +8,7 @@ const MovieContext=createContext()
 
 export const useMovieContext = () => useContext(MovieContext);
 
-/* context provides state to any of the components wrapped around it kind of like BrowserRouter*/
-/*children is a reserved prop when you write a component; it's anything inside the component that you rendered.
-Anything inside provider will be rendered as children*/ 
+
 
 export const MovieProvider =({children})=>{
 
