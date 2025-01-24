@@ -1,7 +1,4 @@
 import "./css/App.css"
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import Favorites from "./pages/Favorites"
 import Home from "./pages/Home"
 import Watchlist from "./pages/Watchlist"
