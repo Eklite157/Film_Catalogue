@@ -73,6 +73,29 @@
     color: #ff4757;
   }
   
+  .watchlist-btn {
+    position: absolute;
+    top: 1.2rem;
+    right: 60px; 
+    color: white;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+  }
+
+  .watchlist-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  .watchlist-btn.active {
+    color: #1e90ff; 
+  }
+
   .rating-select {
     background-color: rgba(0, 0, 0, 0.7);
     color: white;

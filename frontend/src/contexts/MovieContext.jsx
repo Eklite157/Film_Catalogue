@@ -1,4 +1,6 @@
 //essentially the state manager for all of our states
+//Context in React allows you to share values (like state, functions, or any data) between components =
+//at different levels in the component tree, without having to pass them down through props. 
 
 import {createContext, useState, useContext, useEffect} from "react"
 
@@ -35,17 +37,21 @@ export const MovieProvider =({children})=>{
     },[favorites])
 
     //MAIN OPERATIONS
-    /*operation to add to favorites; update state; add value to the array*/
+    //operation to add to favorites; update state; add value to the array
+    //using setFavorites to update the state; take prev (previous value), then simply add newmovie to prev
     const addToFavorites=(movie) =>{
         setFavorites(prev => [...prev, movie])
     }
 
-    /*operation to remove favorites*/
+    //operation to remove favorites
+    //only contain the movies that are not equal to the one we want to remove
     const removeFromFavorites=(movieId) =>{
         setFavorites(prev=> prev.filter(movie =>movie.id !== movieId))
     }
 
     /*operation to check if something is a favorite*/
+    //.some checks if at least one condition is true, so will check all movie ids and if one is equal
+    //then it will be true
     const isFavorite=(movieId) => {
         return favorites.some(movie =>movie.id === movieId)
     }
@@ -57,6 +63,7 @@ export const MovieProvider =({children})=>{
     const removeFromWatchlist=(movieId) =>{
         setWatchlist(prev=> prev.filter(movie =>movie.id !== movieId))
     }
+
 
     const isInWatchlist=(movieId) => {
         return watchlist.some(movie =>movie.id === movieId)
