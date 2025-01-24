@@ -5,7 +5,6 @@ const MovieContext=createContext()
 export const useMovieContext = () => useContext(MovieContext);
 
 
-
 export const MovieProvider =({children})=>{
 
     //State for favorites and watchlist; initializing both as empty arrays
